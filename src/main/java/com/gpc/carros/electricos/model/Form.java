@@ -77,9 +77,7 @@ public class Form {
 
     @PrePersist
     protected void onCreate() {
-        ZoneId bogotaZoneId = ZoneId.of("America/Bogota");
-        ZonedDateTime zonedDateTime = ZonedDateTime.now(bogotaZoneId);
-        this.time = Date.from(zonedDateTime.toInstant());
+       this.time = new Date();
     }
 
 
