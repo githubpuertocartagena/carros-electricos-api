@@ -2,9 +2,34 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="sonatype-snapshots" />
+      <option name="name" value="sonatype-snapshots" />
+      <option name="url" value="http://nexus.sprc.com.co:8081/nexus/content/repositories/sonatype-snapshots/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="springsource-repo" />
+      <option name="name" value="SpringSource Repository" />
+      <option name="url" value="http://nexus.sprc.com.co:8081/nexus/content/repositories/springsource-repo/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="devtomcat.sprc.com.co-jboss" />
+      <option name="name" value="jboss" />
+      <option name="url" value="http://nexus.sprc.com.co:8081/nexus/content/repositories/jboss" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven-central" />
+      <option name="name" value="Maven Central" />
+      <option name="url" value="http://nexus.sprc.com.co:8081/nexus/content/repositories/central/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss-3rd-party" />
+      <option name="name" value="jboss-3rd-party Repository" />
+      <option name="url" value="http://nexus.sprc.com.co:8081/nexus/content/repositories/jboss-3rd-party" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
@@ -15,6 +40,21 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="devtomcat.sprc.com.co-releases" />
+      <option name="name" value="SPRC local repository releases" />
+      <option name="url" value="http://nexus.sprc.com.co:8081/nexus/content/repositories/releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="devtomcat.sprc.com.co-snapshots" />
+      <option name="name" value="SPRC local repository snapshots" />
+      <option name="url" value="http://nexus.sprc.com.co:8081/nexus/content/repositories/snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="devtomcat.sprc.com.co-ext-releases" />
+      <option name="name" value="SPRC extended repository" />
+      <option name="url" value="http://nexus.sprc.com.co:8081/nexus/content/repositories/thirdparty" />
     </remote-repository>
   </component>
 </project>
