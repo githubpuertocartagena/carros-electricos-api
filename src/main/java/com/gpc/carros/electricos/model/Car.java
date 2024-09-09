@@ -25,7 +25,6 @@ public class Car {
     @JoinColumn(name = "STATION_ID")
     private Station station;
 
-    @OneToOne
-    @JoinColumn(name = "USER_ID")
-    private User user;
+    @Column(name = "USERNAME")
+    private String username;
 }

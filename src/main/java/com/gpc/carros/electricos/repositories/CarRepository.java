@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface CarRepository extends JpaRepository<Car, Long> {
 
-    @Query(value = "select c from Car c where c.user.username = :username")
+    @Query(value = "select c from Car c where c.username = :username")
     Optional<Car> findByUser(@Param("username") String username);
 
     Optional<Car> findByCode(String code);

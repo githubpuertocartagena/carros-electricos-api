@@ -2,21 +2,20 @@ package com.gpc.carros.electricos.services;
 
 import com.gpc.carros.electricos.model.Car;
 import com.gpc.carros.electricos.model.Form;
-import com.gpc.carros.electricos.model.User;
 import com.gpc.carros.electricos.model.request.FormRequest;
 import com.gpc.carros.electricos.repositories.CarRepository;
 import com.gpc.carros.electricos.repositories.FormRepository;
-import com.gpc.carros.electricos.repositories.UserRepository;
+import java.time.LocalDateTime;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class FormService {
     @Autowired
     private FormRepository formRepository;
@@ -24,18 +23,15 @@ public class FormService {
     @Autowired
     private CarRepository carRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
     public void createForm(FormRequest formRequest) {
+        log.info("Formulario + " + formRequest);
         Car car = carRepository.findByCode(formRequest.getCarCode())
                 .orElseThrow(() -> new RuntimeException("No exista carro"));
-        User user = userRepository.findByUsername(formRequest.getUsername())
-                .orElseThrow(() -> new RuntimeException("No existe usuario"));
+       
 
         Form form = new Form();
         form.setCar(car);
-        form.setUser(user);
+        form.setUsername(formRequest.getUsername());
         form.setTipo(formRequest.getTipo());
         form.setCinturones(formRequest.getCinturones());
         form.setLuces(formRequest.getLuces());
@@ -48,6 +44,7 @@ public class FormService {
         form.setExtintor(formRequest.getExtintor());
         form.setConos(formRequest.getConos());
         form.setBateria(formRequest.getBateria());
+        form.setCreatedDate(LocalDateTime.now());
         form.setObservaciones(formRequest.getObservaciones());
         formRepository.save(form);
     }

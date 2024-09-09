@@ -5,6 +5,7 @@ import com.gpc.carros.electricos.model.enums.TypeForm;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -20,20 +21,18 @@ public class Form {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "TIME")
-    private Date time;
+    
+    @Column(name = "CREATED_DATE")
+    private LocalDateTime createdDate;
 
     @ManyToOne()
     @JoinColumn(name = "CAR_ID")
     private Car car;
 
-    @ManyToOne()
-    @JoinColumn(name = "USER_ID")
-    private User user;
+    @Column(name = "USERNAME")
+    private String username;
 
     @Column(name = "TIPO")
     @Enumerated(EnumType.STRING)
@@ -75,10 +74,6 @@ public class Form {
     @Column(name = "OBSERVACIONES")
     private String observaciones;
 
-    @PrePersist
-    protected void onCreate() {
-       this.time = new Date();
-    }
 
 
 }

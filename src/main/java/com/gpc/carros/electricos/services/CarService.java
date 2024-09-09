@@ -2,12 +2,10 @@ package com.gpc.carros.electricos.services;
 
 import com.gpc.carros.electricos.model.Car;
 import com.gpc.carros.electricos.model.Station;
-import com.gpc.carros.electricos.model.User;
 import com.gpc.carros.electricos.model.enums.TypeEnum;
 import com.gpc.carros.electricos.model.response.DeviceResponse;
 import com.gpc.carros.electricos.repositories.CarRepository;
 import com.gpc.carros.electricos.repositories.StationRepository;
-import com.gpc.carros.electricos.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +16,6 @@ public class CarService {
 
     @Autowired
     private CarRepository carRepository;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Autowired
     private StationRepository stationRepository;
@@ -117,20 +112,19 @@ public class CarService {
 
     public boolean isCarAssigned(String carCode) {
         Car car = carRepository.findByCode(carCode).orElseThrow(() -> new RuntimeException("No existe carro"));
-        return car.getUser() != null;
+        return car.getUsername()!= null;
     }
 
     public boolean isCarAndUserAssignedToSameCar(String carCode, String username) {
         Car car = searchCar(carCode);
-        return car.getUser().getUsername().equals(username);
+        return car.getUsername().equals(username);
     }
 
     public void assignUserToCar(String carCode, String username) {
         Optional<Car> opCar = carRepository.findByCode(carCode);
         if (opCar.isPresent()) {
             Car car = opCar.get();
-            User user = userRepository.findByUsername(username).get();
-            car.setUser(user);
+            car.setUsername(username);
             carRepository.save(car);
         } else {
             throw new RuntimeException("El carro no existe");
@@ -141,7 +135,7 @@ public class CarService {
         Optional<Car> opCar = carRepository.findByCode(carCode);
         if (opCar.isPresent()) {
             Car car = opCar.get();
-            car.setUser(null);
+            car.setUsername(null);
             carRepository.save(car);
         } else {
             throw new RuntimeException("El carro no existe");
