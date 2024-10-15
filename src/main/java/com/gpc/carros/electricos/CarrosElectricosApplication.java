@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
+@SuppressWarnings("all")
 @SpringBootApplication
 @AutoConfiguration
 @EnableJpaRepositories(basePackages = "com.gpc.carros.electricos.repositories")

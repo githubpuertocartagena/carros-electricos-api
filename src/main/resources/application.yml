@@ -1,11 +1,25 @@
 spring.application.name: carros-electricos
-spring.datasource.url: jdbc:sqlserver://sqlnoprod.database.windows.net:1433;database=Db_App_ECM_NoProd;encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-spring.datasource.username: usrappecmnp@sqlnoprod
-spring.datasource.password: JJpJ8=VL]~{t
-spring.datasource.driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-spring.datasource.hikari.maximum-pool-size: 10
-spring.datasource.hikari.minimum-idle: 5
-spring.datasource.hikari.idle-timeout: 30000
-spring.datasource.hikari.connection-timeout: 20000
-spring.datasource.hikari.auto-commit: true
 spring.jpa.show-sql: true
+logging:
+  level.root: DEBUG
+  #url: jdbc:sqlserver://sqlnoprod.database.windows.net:1433;database=Db_App_ECM_NoProd;encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+  #username: usrappecmnp@sqlnoprod
+  #password: JJpJ8=VL]~{t
+  #driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+spring.datasource:
+  url: jdbc:h2:mem:testdb
+  username: sa
+  password: ""
+  driver-class-name: org.h2.Driver
+  hikari:
+    maximum-pool-size: 10
+    minimum-idle: 5
+    idle-timeout: 30000
+    connection-timeout: 20000
+    auto-commit: true
+
+spring.security.oauth2.resourceserver:
+  jwt:
+    issuer-uri: https://login.microsoftonline.com/7e0ca357-a111-4fa7-97d7-0d9560470797/v2.0
+    jwk-set-uri: https://login.microsoftonline.com/7e0ca357-a111-4fa7-97d7-0d9560470797/discovery/v2.0/keys
+    #audiences: api://d6b4fd16-b292-4917-804d-87311b68ad2e

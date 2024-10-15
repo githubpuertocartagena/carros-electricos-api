@@ -5,14 +5,7 @@ import com.gpc.carros.electricos.model.enums.TypeForm;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
 
 @Entity
 @Table(name = "GPC_FORM")
