@@ -1,4 +1,5 @@
 spring.application.name: carros-electricos
+spring.application.version: 2
 spring.jpa.show-sql: true
 logging:
   level.root: DEBUG

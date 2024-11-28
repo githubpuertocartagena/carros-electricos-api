@@ -87,22 +87,23 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void assignStationToCar(final String carCode, final String stationCode, final String username) {
-        final CarDto car = searchCar(carCode);
-        car.setStation(stationRepository.findByCode(stationCode).get());
-        carRepository.save(mapper.toDatabaseEntity(car));
-        saveLog(username, BatteryStatus.CHARGING);
+        final CarDto carDto = searchCar(carCode);
+        carDto.setStation(stationRepository.findByCode(stationCode).get());
+        final Car car = carRepository.save(mapper.toDatabaseEntity(carDto));
+        saveLog(car, username, BatteryStatus.CHARGING);
     }
 
     @Override
     public void removeStationFromCar(final String carCode, final String username) {
-        final CarDto car = searchCar(carCode);
-        car.setStation(null);
-        carRepository.save(mapper.toDatabaseEntity(car));
-        saveLog(username, BatteryStatus.DISCONNECTED);
+        final CarDto carDto = searchCar(carCode);
+        carDto.setStation(null);
+        final Car car = carRepository.save(mapper.toDatabaseEntity(carDto));
+        saveLog(car, username, BatteryStatus.DISCONNECTED);
     }
 
-    private void saveLog(final String username, final BatteryStatus batteryStatus){
+    private void saveLog(final Car car, final String username, final BatteryStatus batteryStatus){
         final CarLog log = CarLog.builder()
+                .car(car)
                 .username(username).build();
         log.setBatteryStatus(batteryStatus);
         carLogRepository.save(log);

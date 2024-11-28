@@ -4,13 +4,18 @@ import com.gpc.carros.electricos.model.Car;
 import com.gpc.carros.electricos.model.dto.CarDto;
 import com.gpc.carros.electricos.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
 public class CarController {
+
     @Autowired
     private CarService carService;
+
+    @Value("${spring.application.version}")
+    private String version;
 
 
     /*
@@ -30,6 +35,12 @@ public class CarController {
     @GetMapping("status/{code}/{username}")
     public String getStatus(@PathVariable("code") final String code, @PathVariable("username") final String username) {
         return carService.solveStatus(code, username);
+    }
+
+    /* Get app versión*/
+    @GetMapping("app-version")
+    public String getStatus() {
+        return version;
     }
 
     /*
