@@ -1,10 +1,8 @@
 package com.gpc.carros.electricos.model.request;
 
-import com.gpc.carros.electricos.model.enums.TypeEnum;
 import com.gpc.carros.electricos.model.enums.TypeForm;
 import lombok.Data;
 
-import javax.persistence.Column;
 
 @Data
 public class FormRequest {
