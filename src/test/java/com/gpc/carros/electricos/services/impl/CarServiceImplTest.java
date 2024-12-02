@@ -175,7 +175,7 @@ public class CarServiceImplTest {
     void findByUsername(){
         final CarDto response = CarDto.builder().code(CODE).build();
 
-        when(carRepository.findByUser(USER_NAME)).thenReturn(Optional.of(car));
+        when(carRepository.findByUsername(USER_NAME)).thenReturn(Optional.of(car));
         when(mapper.toCarDto(car)).thenReturn(response);
 
         final CarDto result = carService.findByUsername(USER_NAME);
@@ -198,7 +198,7 @@ public class CarServiceImplTest {
     void isUserAssigned(){
         final boolean response = true;
 
-        when(carRepository.findByUser(USER_NAME)).thenReturn(Optional.of(new Car()));
+        when(carRepository.findByUsername(USER_NAME)).thenReturn(Optional.of(new Car()));
 
         final boolean result = carService.isUserAssigned(USER_NAME);
 
