@@ -125,7 +125,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public CarDto findByUsername(final String username) {
-        final Car car = carRepository.findByUser(username)
+        final Car car = carRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("No existe carro con el usuario " + username));
         return mapper.toCarDto(car);
     }
@@ -138,7 +138,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public boolean isUserAssigned(final String username) {
-        return carRepository.findByUser(username).isPresent();
+        return carRepository.findByUsername(username).isPresent();
     }
 
     @Override
