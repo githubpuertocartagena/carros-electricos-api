@@ -1,23 +1,19 @@
 spring.application.name: carros-electricos
 spring.application.version: 2
+spring.datasource:
+  url: jdbc:sqlserver://sqlnoprod.database.windows.net:1433;database=Db_App_ECM_NoProd;encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+  username: usrappecmnp@sqlnoprod
+  password: JJpJ8=VL]~{t
+  driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  hikari.maximum-pool-size: 10
+  hikari.minimum-idle: 5
+  hikari.idle-timeout: 30000
+  hikari.connection-timeout: 20000
+  hikari.auto-commit: true
+
 spring.jpa.show-sql: true
 logging:
-  level.root: DEBUG
-  #url: jdbc:sqlserver://sqlnoprod.database.windows.net:1433;database=Db_App_ECM_NoProd;encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-  #username: usrappecmnp@sqlnoprod
-  #password: JJpJ8=VL]~{t
-  #driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-spring.datasource:
-  url: jdbc:h2:mem:testdb
-  username: sa
-  password: ""
-  driver-class-name: org.h2.Driver
-  hikari:
-    maximum-pool-size: 10
-    minimum-idle: 5
-    idle-timeout: 30000
-    connection-timeout: 20000
-    auto-commit: true
+  level.root: INFO
 
 spring.security.oauth2.resourceserver:
   jwt:
