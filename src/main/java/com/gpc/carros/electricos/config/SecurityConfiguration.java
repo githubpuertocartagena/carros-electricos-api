@@ -26,6 +26,7 @@ public class SecurityConfiguration {
         try {
             http
                     .authorizeRequests()
+                    .antMatchers("/app-version").permitAll()
                     .anyRequest().authenticated() // cualquier otra ruta necesita autenticación
                     .and()
                     .oauth2ResourceServer()

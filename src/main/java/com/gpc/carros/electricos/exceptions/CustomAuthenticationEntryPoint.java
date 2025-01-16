@@ -24,7 +24,7 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
         response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         final Map<String, Object> data = new HashMap<>();
-        final BearerTokenError error = new BearerTokenError(BearerTokenErrorCodes.INVALID_TOKEN, HttpStatus.UNAUTHORIZED, "Token invalido o expirado", null);
+        final BearerTokenError error = new BearerTokenError(BearerTokenErrorCodes.INVALID_TOKEN, HttpStatus.UNAUTHORIZED, "Token inválido o expirado", null);
         data.put("status", HttpServletResponse.SC_UNAUTHORIZED);
         data.put("message", error.getDescription());
         final ObjectMapper objectMapper = new ObjectMapper();
