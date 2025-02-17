@@ -15,8 +15,4 @@ spring.jpa.show-sql: true
 logging:
   level.root: INFO
 
-spring.security.oauth2.resourceserver:
-  jwt:
-    issuer-uri: https://login.microsoftonline.com/7e0ca357-a111-4fa7-97d7-0d9560470797/v2.0
-    jwk-set-uri: https://login.microsoftonline.com/7e0ca357-a111-4fa7-97d7-0d9560470797/discovery/v2.0/keys
-    #audiences: api://d6b4fd16-b292-4917-804d-87311b68ad2e
+gpc.external.authentication.url: https://gpc-external-authentication-dev.puertocartagena.com:8081
