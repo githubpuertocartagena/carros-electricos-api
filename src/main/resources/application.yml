@@ -15,4 +15,5 @@ spring.jpa.show-sql: true
 logging:
   level.root: INFO
 
+
 gpc.external.authentication.url: https://gpc-external-authentication-dev.puertocartagena.com:8081
