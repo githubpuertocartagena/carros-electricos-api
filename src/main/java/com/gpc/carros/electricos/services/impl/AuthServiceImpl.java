@@ -1,5 +1,6 @@
 package com.gpc.carros.electricos.services.impl;
 
+import com.gpc.carros.electricos.model.TokenResponse;
 import com.gpc.carros.electricos.model.response.AuthResponse;
 import com.gpc.carros.electricos.services.AuthService;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +16,7 @@ public class AuthServiceImpl implements AuthService {
     private String serverUrl;
 
     @Override
-    public String login(String information) {
+    public TokenResponse login(String information) {
         String introspectionEndpoint = serverUrl + "/auth/login";
 
         RestTemplate restTemplate = new RestTemplate();
@@ -24,7 +25,7 @@ public class AuthServiceImpl implements AuthService {
 
         HttpEntity<String> request = new HttpEntity<>(information, headers);
 
-        ResponseEntity<String> response = restTemplate.exchange(introspectionEndpoint, HttpMethod.POST, request, String.class);
+        ResponseEntity<TokenResponse> response = restTemplate.exchange(introspectionEndpoint, HttpMethod.POST, request, TokenResponse.class);
 
         return response.getBody();
     }
