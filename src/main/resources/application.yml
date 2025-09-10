@@ -1,9 +1,9 @@
 spring.application.name: carros-electricos
 spring.application.version: 2
 spring.datasource:
-  url: jdbc:sqlserver://sqlnoprod.database.windows.net:1433;database=Db_App_ECM_NoProd;encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-  username: usrappecmnp@sqlnoprod
-  password: JJpJ8=VL]~{t
+  url: jdbc:sqlserver://sqlproduccion.database.windows.net:1433;database=Db_App_ECM_Prod;encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+  username: usrappecmprd
+  password: thrice-Rn=uw/PvSU+
   driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   hikari.maximum-pool-size: 10
   hikari.minimum-idle: 5
@@ -16,4 +16,4 @@ logging:
   level.root: INFO
 
 
-gpc.external.authentication.url: https://gpc-external-authentication-dev.puertocartagena.com:8081
+gpc.external.authentication.url: https://gpc-external-authentication.puertocartagena.com:8081
